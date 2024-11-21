@@ -110,7 +110,7 @@
                 }
                 else if (userInput.match(/stop|bye|end|enough|boring|sorry|no|go/)) {
                     // If the user wants to end the conversation
-                    document.getElementById('end-dialogue').innerText = "You have ended the conversation.\nThanks for chatting!";
+                    document.getElementById('end-dialogue').innerText = "The conversation has ended, please refresh for new chat.";
                     conversationEnded = true;
                     clearInput();  // Clear the input box after ending the conversation
                 }
