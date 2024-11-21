@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: jokebot-web
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    plan: free
+    branches:
+      - main
+    envVars:
+      - key: FLASK_APP
+        value: app.py
+      - key: FLASK_ENV
+        value: production
