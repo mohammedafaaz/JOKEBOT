@@ -102,4 +102,5 @@ def get_next_action():
     return jsonify({"next_action": "wait_for_feedback"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
