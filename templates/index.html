@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            color: rgb(0, 62, 90);
+            font-size: larger;
+            margin-top: 100px;
+        }
+        button {
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            padding: 5px 10px;
+            font-size: 10px;
+            margin-top: 100px;
+            cursor:grabbing;
+            color: rgb(0, 12, 64);
+        }
+        #joke, #end-dialogue {
+            margin-top: 20px;
+            font-size: 30px;
+            font-weight: 500;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #000000;
+        }
+        a {
+            font: 1em sans-serif;
+            font-size: 15px;
+            font-style: italic; 
+        }
+        p {
+            text-align: center;
+            font-size: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>J O K E  B O T 🤖</h1>
+    <h2>Welcome User!</h2>
+    
+    <input type="text" inputmode="email" id="userPrompt" placeholder="Enter prompt(e.g.'Tell me a joke')">
+    <button id="submitPromptButton">Submit</button>
+
+    <div id="joke"></div>
+    <div id="end-dialogue"></div>
+
+    <script>
+        let jokeDisplayed = false;
+        let jokeRequested = false;  // Flag to track if the joke has been requested
+        let conversationEnded = false;
+
+        // Function to clear the command box after each input
+        function clearInput() {
+            document.getElementById('userPrompt').value = '';
+        }
+
+        // Handle submit button click
+        document.getElementById('submitPromptButton').addEventListener('click', function() {
+            handleUserInput();
+        });
+
+        // Handle enter key press for submitting
+        document.getElementById('userPrompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();  // Prevent the default Enter behavior (e.g., form submission)
+                handleUserInput();
+            }
+        });
+
+        // Function to handle user input
+        function handleUserInput() {
+            var userInput = document.getElementById('userPrompt').value.trim().toLowerCase();
+
+            // Triggering joke fetch when "joke" is in the input (only for the first time)
+            if (!conversationEnded) {
+                if (!jokeRequested && userInput.includes("joke")) {
+                    // Only respond to the "joke" request if it hasn't been done yet
+                    fetch('/get_joke')
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('joke').innerText = data.joke;
+                            jokeDisplayed = true;
+                            jokeRequested = true;  // Set flag to true after the joke is requested
+                        });
+                    clearInput();  // Clear the input box after submitting the first request
+                }
+                else if (jokeDisplayed) {
+                    // Ask the user if they want to hear another joke
+                    document.getElementById('joke').innerText = "Did you like it? Want to hear another joke?";
+                    jokeDisplayed = false; // Reset jokeDisplayed flag, awaiting response
+                    clearInput();  // Clear the input box after showing the prompt
+                }
+                else if (userInput.match(/yes|yeah|sure|please|yup|okay|ok|why|not/)) {
+                    // If the user wants another joke
+                    fetch('/get_joke')
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('joke').innerText = data.joke;
+                            jokeDisplayed = true;
+                        });
+                    clearInput();  // Clear the input box after submitting
+                }
+                else if (userInput.match(/stop|bye|end|enough|boring|sorry|no|go/)) {
+                    // If the user wants to end the conversation
+                    document.getElementById('end-dialogue').innerText = "You have ended the conversation.\nThanks for chatting!";
+                    conversationEnded = true;
+                    clearInput();  // Clear the input box after ending the conversation
+                }
+            }
+        }
+    </script>
+
+    <centre><a href = "https://forms.gle/cK6euUmFaDwXS9BK6">Feedback!</a></centre>
+    <p>By MOHAMMED AFAAZ</p>
+</body>
+</html>
