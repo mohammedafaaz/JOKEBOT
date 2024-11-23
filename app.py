@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, jsonify, request
 import random
 
@@ -61,8 +62,8 @@ jokes = [
 # Keywords to detect reactions and control the flow
 positive_reactions = ["haha", "good", "funny", "amazing", "wow", "lol", "lmao", "hahaha", "omg", "insane"]
 negative_reactions = ["stop", "bye", "end", "enough", "boring", "sorry", "no", "go"]
-yes_responses = ["yes", "yeah", "sure", "please", "yup", "okay", "ok", "why", "not"]
-end_dialogue = "Thanks for chatting! See you next time!"
+yes_responses = ["yes", "yeah", "sure", "please", "yup", "okay", "ok", "why", "not","yaa","ya"]
+end_dialogue = "Catch you later! Keep smiling!"
 
 @app.route('/')
 def home():
@@ -103,4 +104,3 @@ def get_next_action():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-
