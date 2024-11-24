@@ -7,73 +7,85 @@
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(to bottom right, #03005d, #ec16ff);
+    background: linear-gradient(to top right , #111111,#006663);
     text-align: center;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
     height: 100vh;
     color: rgb(0, 62, 90);
     font-size: larger;
-        }
+    }
 
-        button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 18px;
-            font-size: 1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.5s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+    button {
+    background-color: #007BFF;
+    color: white;
+    padding: 3px 5px;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    }
 
-        #joke, #end-dialogue {
-            margin-top: 20px;
-            font-size: 30px;
-            font-weight: 500;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #ffffff;
-        }
+    button:hover {
+    background-color: #1652c06d;
+    }
 
-        a {
-            color: #799dff;
-            font-style: italic;
-            font-size: 1.2em;
-            text-decoration: none;
-            margin-top: 1px;
-            display: inline-block;
-            transition: 0.5s;
-        }
+    #joke, #end-dialogue {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+    }
+
+    a {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-size: 1em;
+    text-decoration: none;
+    margin-top: 1px;
+    display: inline-block;
+    transition: 0.5s;
+    position: fixed;
+        bottom: 80px;
+        right: 20px;
+    }
 
         a:hover {
-            color: lightgrey;}
+            color: #799dff;}
 
-        p {
-            text-align: center;
-            font-size: 10px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-        }
-        p:hover{
-            color: lightgrey;
-        }
+            p {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-size: 0.8em;
+    text-decoration: none;
+    margin-top: 1px;
+    display: inline-block;
+    transition: 0.5s;
+    position: fixed;
+        bottom: 40px;
+        right: 20px;
+    }
+
 
         h1 {
+            position: fixed;
+            top: 20px;
+            left: 20px;
             margin-bottom: 5px;
-            font-size:3em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:1.5em;
             color: rgb(255, 255, 255);
-            transition: 0.5s;
+            transition: 1.5s;
         }
         h1:hover{
-            color: lightgrey;
+            
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.711));
         }
 
         h2{
@@ -87,24 +99,139 @@
         }
 
         input[type="text"] {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 40%;
-            padding: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 5px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 0.9em;
+            transition: 0.5s;
+        }
+        input:hover
+        {
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.358));
         }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff00;
+  min-width: 220px;
+  
+  padding: 3px 5px;
+  z-index: 1;
+  border-radius: 8px;
+  font-size: small;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;}
+
+.how-it-works {
+            color: #007BFF;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: start;
+            position: fixed;
+            top: 50px;
+            left: 20px;
+            
+        }
+        .how-it-works:hover {
+            text-decoration: underline;
+        }
+        .details {
+            margin-top: 10px;
+            display: none;
+            text-align: left;
+            color: #555;
+            font-size: 1em;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .close-btn {
+            color: #FF6347;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+        .close-btn:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background: #ffffff00;
+            padding: 10px 20px;
+            text-align: center;
+            margin-top:20px;
+            font-size:xx-small;
+        }
+        .link {
+            color: #007BFF;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            margin-top: 10px;
+            display:none;
+            text-align: left;
+            color: #555;
+            font-size: 2em;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            
+        }
 
     </style>
 </head>
 <body>
+    <div>
+        <div class="how-it-works" onclick="toggleDetails()">How It Works?</div>
+        <div class="details" id="details">
+            <p>JokeBot is an interactive joke generator that uses the following steps:</p>
+            <ol>
+                <li>Type a command like "Tell me a joke" into the input box.</li>
+                <li>JokeBot fetches a random joke from its server or API.</li>
+                <li>The joke is displayed on the screen for you to enjoy!</li>
+                <li>If you liked the joke, you can ask for another one.</li>
+                <li>If you want to stop, simply type "stop" or "bye."</li>
+            </ol>
+            <p>It's that simple! Have fun with JokeBot and keep laughing!</p>
+            <span class="close-btn" onclick="toggleDetails()">Close</span>
+        </div>
+    </div>
+    <script>
+        function toggleDetails() {
+            const details = document.getElementById('details');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
 
+    <div>
     <h1>J O K E  B O T 🤖</h1>
     <br>
     <h2>Jokes Generator</h2>
-    <br>
     <input type="text" inputmode="email" id="userPrompt" placeholder="Enter prompt(e.g.'Tell me a joke')">
     <button id="submitPromptButton">Submit</button>
 
@@ -177,8 +304,52 @@
         }
     </script>
 
-    <centre><a href = "https://forms.gle/cK6euUmFaDwXS9BK6">Leave Feedback</a></centre>
-    <p>By MOHAMMED AFAAZ</p>
-    
+    <centre><a href = "https://forms.gle/cK6euUmFaDwXS9BK6">--->Leave Feedback</a></centre>
+    <br>
+    <p>Developed by Mohammed Afaaz</p>
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="link" onclick="toggleContent('terms')">View Terms and Conditions</div>
+        <div class="content" id="terms">
+            <h3>Terms and Conditions</h3>
+            <p>Welcome to JokeBot! By using our service, you agree to the following:</p>
+            <ul>
+                <li>Purpose of Use: The Joke Bot is designed for entertainment purposes only. It delivers jokes and light-hearted content but does not guarantee the appropriateness or accuracy of any content.</li>
+                <li>User Responsibility: Users are responsible for their interactions with the application and must ensure its use complies with local laws and regulations.</li>
+                <li>No Offensive Content: Users are prohibited from entering offensive, discriminatory, or illegal inputs into the Joke Bot.</li>
+                <li>Data Privacy: The Joke Bot does not collect or store personal data. All inputs provided by the user remain confidential and are processed temporarily for generating jokes.</li>
+                <li>Modifications to Terms: These terms may be updated without prior notice. Continued use of the Joke Bot indicates acceptance of any modifications.</li>
+                <li>Disclaimer: The developers are not liable for any unintended outcomes or interpretations of the jokes generated by the application.</li>
+            </ul>
+            <span class="close-btn" onclick="toggleContent('terms')">Close</span>
+        </div>
+        <br>
+        <div class="link" onclick="toggleContent('privacy')">View Privacy Policy</div>
+        <div class="content" id="privacy">
+            <h3>Privacy Policy</h3>
+            <p>We value your privacy:</p>
+            <ul>
+                <li>Data Collection: The Joke Bot operates without storing or collecting personal information from users.</li>
+                <li>Temporary Inputs: User inputs are processed temporarily and are not saved in any database or logs.</li>
+                <li>Third-party Access: We do not share any user input or related data with third-party services.</li>
+                <li>Cookies: The Joke Bot does not use cookies or any tracking technologies.</li>
+                <li>Security: While we ensure the application is safe to use, we cannot guarantee absolute security in case of external threats or misuse.</li>
+                <li>Feedback: If you provide feedback, it will only be used to improve the application and will not be stored beyond the session.</li>
+            </ul>
+            <span class="close-btn" onclick="toggleContent('privacy')">Close</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>
