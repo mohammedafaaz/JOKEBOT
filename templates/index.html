@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joke Generator</title>
     <style>
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(to top right , #111111,#006663);
+    body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -20,31 +19,15 @@
     font-size: larger;
     }
 
-    button {
-    background-color: #007BFF;
-    color: white;
-    padding: 3px 5px;
-    font-size: 0.8em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.5s;
-    }
-
-    button:hover {
-    background-color: #1652c06d;
-    }
-
     #joke, #end-dialogue {
     margin-top: 20px;
-    font-size: 30px;
-    font-weight: 500;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #ffffff;
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #000000;
     }
 
     a {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-style: italic;
     font-size: 1em;
     text-decoration: none;
@@ -56,11 +39,11 @@
         right: 20px;
     }
 
-        a:hover {
-            color: #799dff;}
+    a:hover {
+    color: #799dff;}
 
-            p {
-    color: rgb(255, 255, 255);
+    p {
+    color: rgb(0, 0, 0);
     font-style: italic;
     font-size: 0.8em;
     text-decoration: none;
@@ -71,46 +54,19 @@
         bottom: 40px;
         right: 20px;
     }
-
-
-        h1 {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            margin-bottom: 5px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size:1.5em;
-            color: rgb(255, 255, 255);
-            transition: 1.5s;
-        }
-        h1:hover{
-            
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.711));
-        }
-
-        h2{
-            font-size: medium;
-            margin-top: 5px;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-        }
-        h2:hover{
-            color: lightgrey;
-        }
-
-        input[type="text"] {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    input[type="text"] {
+            box-shadow: 0 8px 16px rgba(121, 121, 121, 0.1);
             width: 350px;
             padding: 5px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
             border-radius: 8px;
             font-size: 0.9em;
             transition: 0.5s;
         }
         input:hover
         {
-            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.358));
+            filter: drop-shadow(0 0 20px rgba(109, 109, 109, 0.358));
         }
 
 .dropdown {
@@ -141,7 +97,7 @@
             margin-top: 20px;
             text-align: start;
             position: fixed;
-            top: 50px;
+            top: 70px;
             left: 20px;
             
         }
@@ -152,12 +108,12 @@
             margin-top: 10px;
             display: none;
             text-align: left;
-            color: #555;
+            color: #ffffff;
             font-size: 1em;
-            background: #f9f9f9;
+            background: #000000;
             padding: 10px;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #000000;
         }
         .close-btn {
             color: #FF6347;
@@ -190,30 +146,206 @@
             margin-top: 10px;
             display:none;
             text-align: left;
-            color: #555;
+            color: #ffffff;
             font-size: 2em;
-            background: #f9f9f9;
+            background: #000000;
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #000000;
             
         }
 
+        .shimmer-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem; /* Base font size */
+      font-weight: 500; /* Medium font weight */
+      line-height: 0.4; /* Tight line height */
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff; /* White text */
+      background: linear-gradient(90deg, #000000, #000000, #ffffff); /* Example shimmer gradient */
+      background-size: 200% 100%;
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Shadow */
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      animation: shimmer 3.0s infinite;
+    }
+
+    /* Shimmer effect */
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    /* Responsive text size */
+    @media (min-width: 1024px) {
+      .shimmer-button {
+        font-size: 1.125rem; /* lg:text-lg */
+      }
+    }
+     /* Particles styles */
+     .particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: var(--particle-color, #000000);
+      border-radius: 50%;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Particle animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+        transform: translateY(-30px) translateX(10px);
+      }
+      100% {
+        transform: translateY(60px) translateX(-10px);
+        opacity: 0.2;
+      }
+    }
+    .blur-fade-text {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 16px;
+      filter: blur(10px);
+      opacity: 0;
+      animation: blurFade 2.0s ease-in-out forwards;
+      
+    }
+
+    /* Blur Fade Animation */
+    @keyframes blurFade {
+      0% {
+        filter: blur(10px);
+        opacity: 0;
+      }
+      100% {
+        filter: blur(0);
+        opacity: 1;
+      }
+    }
+
+    /* Add animation delay for each text */
+    .blur-fade-text:nth-child(1) {
+      animation-delay: 0.25s;
+    }
+    .blur-fade-text:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    .typing-container {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 10px;
+    }
+
+    .typing-container span {
+      color: #000000;
+      padding: 0 4px;
+      top: 0;
+      left: 0;
+      margin: 10px;
+    }
+      /* Dark mode styles */
+      body.dark-mode {
+            background-color: #000000;
+            color: white;
+        }
+
+        .mode-toggle {
+        position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .mode-toggle:hover {
+            background-color: #000000;
+        }
+
+        .mode-toggle:focus {
+            outline: none;
+        }
+        #joke, #end-dialogue,a,p,.blur-fade-text, .typing-container span, .particle, .particles{
+            color: black;
+        }
+        body.dark-mode #joke,
+        body.dark-mode #end-dialogue,
+        body.dark-mode a,
+        body.dark-mode p,
+        body.dark-mode .blur-fade-text,
+        body.dark-mode .typing-container span,
+        body.dark-mode .particle,
+        body.dark-mode .particles{
+            color: white;
+        }
+    
     </style>
 </head>
 <body>
     <div>
+        <div class="typing-container">
+            <span id="typed-text"></span>
+        </div>
+        <div class="blur-fade-text">Welcome user!😄,nice to meet you.</div>
+        <div class="blur-fade-text">Generate any joke.</div>
+        <br>
+        <div class="particles">
+            <!-- 100 particles generated -->
+            <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+            <div class="particle" style="top: 15%; left: 30%; animation-delay: 0.2s;"></div>
+            <div class="particle" style="top: 20%; left: 40%; animation-delay: 0.4s;"></div>
+            <div class="particle" style="top: 25%; left: 50%; animation-delay: 0.6s;"></div>
+            <div class="particle" style="top: 30%; left: 60%; animation-delay: 0.8s;"></div>
+            <div class="particle" style="top: 35%; left: 70%; animation-delay: 1s;"></div>
+            <div class="particle" style="top: 40%; left: 80%; animation-delay: 1.2s;"></div>
+            <div class="particle" style="top: 45%; left: 90%; animation-delay: 1.4s;"></div>
+            <div class="particle" style="top: 50%; left: 10%; animation-delay: 1.6s;"></div>
+            <div class="particle" style="top: 55%; left: 20%; animation-delay: 1.8s;"></div>
+            <!-- Repeat as needed to create the desired number of particles -->
+          </div>
         <div class="how-it-works" onclick="toggleDetails()">How It Works?</div>
         <div class="details" id="details">
-            <p>JokeBot is an interactive joke generator that uses the following steps:</p>
             <ol>
+                JokeBot is an interactive joke generator that uses the following steps:
                 <li>Type a command like "Tell me a joke" into the input box.</li>
                 <li>JokeBot fetches a random joke from its server or API.</li>
                 <li>The joke is displayed on the screen for you to enjoy!</li>
                 <li>If you liked the joke, you can ask for another one.</li>
                 <li>If you want to stop, simply type "stop" or "bye."</li>
             </ol>
-            <p>It's that simple! Have fun with JokeBot and keep laughing!</p>
+
             <span class="close-btn" onclick="toggleDetails()">Close</span>
         </div>
     </div>
@@ -229,11 +361,11 @@
     </script>
 
     <div>
-    <h1>J O K E  B O T 🤖</h1>
-    <br>
-    <h2>Jokes Generator</h2>
     <input type="text" inputmode="email" id="userPrompt" placeholder="Enter prompt(e.g.'Tell me a joke')">
-    <button id="submitPromptButton">Submit</button>
+    <button class="shimmer-button",id="submitPromptButton">Submit
+        <span>
+        </span>
+    </button>
 
     <div id="joke"></div>
     <div id="end-dialogue"></div>
@@ -312,8 +444,9 @@
         <div class="link" onclick="toggleContent('terms')">View Terms and Conditions</div>
         <div class="content" id="terms">
             <h3>Terms and Conditions</h3>
-            <p>Welcome to JokeBot! By using our service, you agree to the following:</p>
             <ul>
+                Welcome to JokeBot! By using our service, you agree to the following:
+                <br>
                 <li>Purpose of Use: The Joke Bot is designed for entertainment purposes only. It delivers jokes and light-hearted content but does not guarantee the appropriateness or accuracy of any content.</li>
                 <li>User Responsibility: Users are responsible for their interactions with the application and must ensure its use complies with local laws and regulations.</li>
                 <li>No Offensive Content: Users are prohibited from entering offensive, discriminatory, or illegal inputs into the Joke Bot.</li>
@@ -327,8 +460,8 @@
         <div class="link" onclick="toggleContent('privacy')">View Privacy Policy</div>
         <div class="content" id="privacy">
             <h3>Privacy Policy</h3>
-            <p>We value your privacy:</p>
             <ul>
+                We value your privacy:
                 <li>Data Collection: The Joke Bot operates without storing or collecting personal information from users.</li>
                 <li>Temporary Inputs: User inputs are processed temporarily and are not saved in any database or logs.</li>
                 <li>Third-party Access: We do not share any user input or related data with third-party services.</li>
@@ -338,6 +471,9 @@
             </ul>
             <span class="close-btn" onclick="toggleContent('privacy')">Close</span>
         </div>
+    </div>
+    <div class="light-mode">
+        <button class="mode-toggle" id="toggleMode">Switch to Dark Mode</button>
     </div>
 
     <script>
@@ -349,6 +485,48 @@
                 content.style.display = 'none';
             }
         }
+    </script>
+    <script>
+        const text = "J O K E  B O T 🤖";
+        const element = document.getElementById("typed-text");
+    
+        let index = 0;
+    
+        function typeText() {
+          if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeText, 100); // Adjust typing speed here
+          }
+        }
+    
+        // Start the typing effect
+        typeText();
+      </script>
+       <script>
+        // Get the button and the body element
+        const toggleButton = document.getElementById('toggleMode');
+        const body = document.body;
+
+        // Check the current mode from localStorage (if any)
+        if (localStorage.getItem('dark-mode') === 'true') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = 'Switch to Light Mode';
+        }
+
+        // Toggle dark mode on button click
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save the current mode to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'true');
+                toggleButton.textContent = 'Switch to Light Mode';
+            } else {
+                localStorage.setItem('dark-mode', 'false');
+                toggleButton.textContent = 'Switch to Dark Mode';
+            }
+        });
     </script>
 
 </body>
