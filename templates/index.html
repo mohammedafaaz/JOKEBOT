@@ -21,7 +21,7 @@
 
     #joke, #end-dialogue {
     margin-top: 20px;
-    font-size: 2.3rem;
+    font-size: 2.0rem;
     font-weight: bold;
     color: #000000;
     }
@@ -97,7 +97,7 @@
             margin-top: 20px;
             text-align: start;
             position: fixed;
-            top: 70px;
+            top: 50px;
             left: 20px;
             
         }
@@ -169,37 +169,6 @@
             background-color: #0056b3;
         }
 
-     /* Particles styles */
-     .particles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background-color: var(--particle-color, #000000);
-      border-radius: 50%;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    /* Particle animation */
-    @keyframes float {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.8;
-        transform: translateY(-30px) translateX(10px);
-      }
-      100% {
-        transform: translateY(60px) translateX(-10px);
-        opacity: 0.2;
-      }
-    }
     .blur-fade-text {
       font-size: 1.3rem;
       font-weight: bold;
@@ -231,7 +200,7 @@
       animation-delay: 0.5s;
     }
     .typing-container {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       font-weight: bold;
       color: #000;
       position: absolute;
@@ -255,15 +224,15 @@
 
         .mode-toggle {
         position: fixed;
+        font-size: smaller;
       top: 20px;
       right: 20px;
-      padding: 8px 10px;
+      padding: 5px 10px;
       background-color: #007bff;
       color: #fff;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
         }
 
         .mode-toggle:hover {
@@ -297,20 +266,6 @@
         <div class="blur-fade-text">Welcome user!😄,nice to meet you.</div>
         <div class="blur-fade-text">Generate any joke.</div>
         <br>
-        <div class="particles">
-            <!-- 100 particles generated -->
-            <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-            <div class="particle" style="top: 15%; left: 30%; animation-delay: 0.2s;"></div>
-            <div class="particle" style="top: 20%; left: 40%; animation-delay: 0.4s;"></div>
-            <div class="particle" style="top: 25%; left: 50%; animation-delay: 0.6s;"></div>
-            <div class="particle" style="top: 30%; left: 60%; animation-delay: 0.8s;"></div>
-            <div class="particle" style="top: 35%; left: 70%; animation-delay: 1s;"></div>
-            <div class="particle" style="top: 40%; left: 80%; animation-delay: 1.2s;"></div>
-            <div class="particle" style="top: 45%; left: 90%; animation-delay: 1.4s;"></div>
-            <div class="particle" style="top: 50%; left: 10%; animation-delay: 1.6s;"></div>
-            <div class="particle" style="top: 55%; left: 20%; animation-delay: 1.8s;"></div>
-            <!-- Repeat as needed to create the desired number of particles -->
-          </div>
         <div class="how-it-works" onclick="toggleDetails()">How It Works?</div>
         <div class="details" id="details">
             <ol>
@@ -484,7 +439,7 @@
         // Check the current mode from localStorage (if any)
         if (localStorage.getItem('dark-mode') === 'true') {
             body.classList.add('dark-mode');
-            toggleButton.textContent = 'Switch to Light Mode';
+            toggleButton.textContent = 'Light Mode';
         }
 
         // Toggle dark mode on button click
@@ -494,10 +449,10 @@
             // Save the current mode to localStorage
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('dark-mode', 'true');
-                toggleButton.textContent = 'Switch to Light Mode';
+                toggleButton.textContent = 'Light Mode';
             } else {
                 localStorage.setItem('dark-mode', 'false');
-                toggleButton.textContent = 'Switch to Dark Mode';
+                toggleButton.textContent = 'Dark Mode';
             }
         });
     </script>
