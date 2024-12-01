@@ -28,8 +28,8 @@
 
     a {
     color: rgb(0, 0, 0);
-    font-style: italic;
     font-size: 1em;
+    font-weight: bold;
     text-decoration: none;
     margin-top: 1px;
     display: inline-block;
@@ -38,14 +38,13 @@
         bottom: 80px;
         right: 20px;
     }
-
     a:hover {
     color: #799dff;}
 
     p {
     color: rgb(0, 0, 0);
-    font-style: italic;
     font-size: 0.8em;
+    font-weight: bold;
     text-decoration: none;
     margin-top: 1px;
     display: inline-block;
@@ -97,8 +96,8 @@
             margin-top: 20px;
             text-align: start;
             position: fixed;
-            top: 50px;
-            left: 20px;
+            top: 30px;
+            left: 10px;
             
         }
         .how-it-works:hover {
@@ -154,29 +153,63 @@
             border: 1px solid #000000;
             
         }
+        .button-container{
+            position: relative;
+            z-index: 0;
+            display: flex;
+            min-height: 34px;
+            align-items: center;
+        }
 
-        button {
-            background-color: #007BFF;
-            color: white;
-            padding: 5px 10px;
-            font-size: 1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.5s;
+        .button {
+        position: relative;
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      font-weight: 200;
+      color: white;
+      background: linear-gradient(90deg, #000000, #000000);
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
         }
-        button:hover {
-            background-color: #0056b3;
-        }
+        .button:hover {
+      transform: scale(1.05);
+    }
+    .button-effect {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
 
     .blur-fade-text {
-      font-size: 1.3rem;
+    font-size: 1.0rem;
       font-weight: bold;
       color: #000000;
       margin-bottom: 16px;
       filter: blur(10px);
       opacity: 0;
       animation: blurFade 2.0s ease-in-out forwards;
+      
       
     }
 
@@ -199,19 +232,11 @@
     .blur-fade-text:nth-child(2) {
       animation-delay: 0.5s;
     }
-    .typing-container {
-      font-size: 2.5rem;
+    h1 {
+      font-size: 1.5em;
       font-weight: bold;
       color: #000;
       position: absolute;
-      top: 0;
-      left: 0;
-      margin: 10px;
-    }
-
-    .typing-container span {
-      color: #000000;
-      padding: 0 4px;
       top: 0;
       left: 0;
       margin: 10px;
@@ -224,7 +249,7 @@
 
         .mode-toggle {
         position: fixed;
-        font-size: smaller;
+        font-size: 0.5rem;
       top: 20px;
       right: 20px;
       padding: 5px 10px;
@@ -242,7 +267,7 @@
         .mode-toggle:focus {
             outline: none;
         }
-        #joke, #end-dialogue,a,p,.blur-fade-text, .typing-container span, .particle, .particles{
+        #joke, #end-dialogue,a,p,.blur-fade-text,h1{
             color: black;
         }
         body.dark-mode #joke,
@@ -250,9 +275,7 @@
         body.dark-mode a,
         body.dark-mode p,
         body.dark-mode .blur-fade-text,
-        body.dark-mode .typing-container span,
-        body.dark-mode .particle,
-        body.dark-mode .particles{
+        body.dark-mode h1{
             color: white;
         }
     
@@ -260,9 +283,6 @@
 </head>
 <body>
     <div>
-        <div class="typing-container">
-            <span id="typed-text"></span>
-        </div>
         <div class="blur-fade-text">Welcome user!😄,nice to meet you.</div>
         <div class="blur-fade-text">Generate any joke.</div>
         <br>
@@ -291,9 +311,18 @@
         }
     </script>
 
-    <div>
-    <input type="text" inputmode="email" id="userPrompt" placeholder="Enter prompt(e.g.'Tell me a joke')">
-    <button id="submitPromptButton">Submit</button>
+<div>
+    <input 
+      type="text" 
+      inputmode="email" 
+      id="userPrompt" 
+      placeholder="Enter prompt (e.g., 'Tell me a joke')">
+    <div class="button-container">
+      <button class="button" id="submitPromptButton"><span>Generate</span>
+        <div class="button-effect"></div>
+      </button>
+    </div>
+  </div>
 
     <div id="joke"></div>
     <div id="end-dialogue"></div>
@@ -364,7 +393,7 @@
         }
     </script>
 
-    <centre><a href = "https://forms.gle/cK6euUmFaDwXS9BK6">--->Leave Feedback</a></centre>
+    <centre><a href = "https://forms.gle/cK6euUmFaDwXS9BK6">📬Feedback</a></centre>
     <br>
     <p>Developed by Mohammed Afaaz</p>
     <!-- Footer Section -->
@@ -403,6 +432,7 @@
     <div class="light-mode">
         <button class="mode-toggle" id="toggleMode">Switch to Dark Mode</button>
     </div>
+    <h1>🤖 J O K E B O T</h1>
 
     <script>
         function toggleContent(id) {
@@ -414,23 +444,6 @@
             }
         }
     </script>
-    <script>
-        const text = "J O K E  B O T 🤖";
-        const element = document.getElementById("typed-text");
-    
-        let index = 0;
-    
-        function typeText() {
-          if (index < text.length) {
-            element.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeText, 100); // Adjust typing speed here
-          }
-        }
-    
-        // Start the typing effect
-        typeText();
-      </script>
        <script>
         // Get the button and the body element
         const toggleButton = document.getElementById('toggleMode');
